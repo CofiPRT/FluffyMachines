@@ -170,13 +170,18 @@ class UpgradedExplosiveTool extends ExplosiveTool {
             b.breakNaturally(item);
         }
 
-        damageItem(p, item);
+        for (int i = 0; i < getDamagePerBlock(); i++)
+            damageItem(p, item);
 
         if (triggerOtherPlugins.getValue()) {
             AlternateBreakEvent breakEvent = new AlternateBreakEvent(b, p);
             Bukkit.getServer().getPluginManager().callEvent(breakEvent);
         }
 
+    }
+
+    protected int getDamagePerBlock() {
+        return 1;
     }
 
 }

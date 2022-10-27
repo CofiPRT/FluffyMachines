@@ -7,6 +7,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
+import io.ncbpfluffybear.fluffymachines.BalancingChanges;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -31,6 +32,11 @@ public class UpgradedExplosiveShovel extends UpgradedExplosiveTool {
     protected boolean canBreak(Player p, Block b) {
         return SlimefunTag.EXPLOSIVE_SHOVEL_BLOCKS.isTagged(b.getType())
             && Slimefun.getProtectionManager().hasPermission(p, b.getLocation(), Interaction.BREAK_BLOCK);
+    }
+
+    @Override
+    protected int getDamagePerBlock() {
+        return BalancingChanges.UPGRADED_EXPLOSIVE_SHOVEL_DURABILITY_COST_PER_BLOCK;
     }
 
 }

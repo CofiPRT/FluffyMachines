@@ -4,6 +4,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.items.tools.ExplosiveSh
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.ncbpfluffybear.fluffymachines.BalancingChanges;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
@@ -22,4 +23,8 @@ public class UpgradedExplosivePickaxe extends UpgradedExplosiveTool {
         super(category, item, recipeType, recipe);
     }
 
+    @Override
+    protected int getDamagePerBlock() {
+        return BalancingChanges.UPGRADED_EXPLOSIVE_PICKAXE_DURABILITY_COST_PER_BLOCK;
+    }
 }
